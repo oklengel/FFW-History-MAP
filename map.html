@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>DDRUW - Heynitz Karte</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 100%;
+			width: 100%;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+
+
+<div id="map" style="width: 100%; height: 100%;"></div>
+<script>
+
+	var map = L.map('map').setView([51.0911, 13.3771], 15);
+
+	var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+//Spritzenhaus: 51.09244/13.38383
+var marker_spritzenhaus = L.marker([51.09244,13.38383]).addTo(map)
+		.bindPopup('<b>Spritzenhaus</b><br />GH 1900-196X?').openPopup();
+//GH:/51.09173/13.38138
+var marker_GH = L.marker([51.09173,13.38138]).addTo(map)
+		.bindPopup('<b>GH FFW Heynitz</b><br />BJ 1662/63').openPopup();
+//Luftbildanomalie 51.07889/13.39320
+var marker_LA = L.marker([51.07889,13.39320]).addTo(map)
+		.bindPopup('<b>Luftbildanomalie</b><br />vmtl. Steinbruch').openPopup();
+//Villa Mausi 51.0766/13.3910
+var marker_VM = L.marker([51.0766,13.3910]).addTo(map)
+		.bindPopup('<b>Villa Mausi</b><br />Feldscheune von Wesers/Kottewitz Berg').openPopup();
+//Liederhöhle: 51.0764/13.3963
+var marker_LH = L.marker([51.0764,13.3963]).addTo(map)
+		.bindPopup('<b>Kalksteinhöhle/Liederhöhle</b><br />Versteck eines Wehrmachtssoldaten 1945').openPopup();
+//Polenhaus 51.08970/13.37509
+var marker_LH = L.marker([51.08970,13.37509]).addTo(map)
+		.bindPopup('<b>Polenhaus</b><br />Unterkunft Polnischer Zwangsarbeiter').openPopup();
+//Windmühle 51.09181/13.37005
+var marker_WM = L.marker([51.09181,13.37005]).addTo(map)
+		.bindPopup('<b>Windmühle</b><br />Brannte in folge Blitzschlages ab').openPopup();
+//Schule Hey 51.09220/13.38259
+var marker_SC = L.marker([51.09220,13.38259]).addTo(map)
+		.bindPopup('<b>Schule Heynitz</b><br />Wirkungsort von Gaumnitz').openPopup();
+//Wohnhaus Hammer 51.10002/13.37418
+var marker_WH = L.marker([51.10002,13.37418]).addTo(map)
+		.bindPopup('<b>Wohnhaus Fam. Hammer</b><br />Wohnhaus Fam. Hammer').openPopup();
+
+//Falk? 51.07684/13.36897
+var marker_F = L.marker([51.07684,13.36897]).addTo(map)
+		.bindPopup('<b>Flakstellung?</b><br />Nicht bestätigt!').openPopup();
+
+//Steinbruch: 51.07712/13.38004
+var marker_SB = L.marker([51.07712,13.38004]).addTo(map)
+		.bindPopup('<b>Steinbruch</b><br />Steinbruch, wird in Quellen erwähnt').openPopup();
+
+//Siedlungsheim? 51.08801/13.37052
+var marker_SH = L.marker([51.08801,13.37052]).addTo(map)
+		.bindPopup('<b>Siedlungsheim?</b><br />Soll auch in Verbindung mit Zwangsarbeit stehen?').openPopup();
+
+//Bomberabsturtz 51.0963/13.3283
+var marker_BA = L.marker([ 51.0963,13.3283]).addTo(map)
+		.bindPopup('<b>Bomberabsturz</b><br />Ungefährer Absturzort des engl. Bombers').openPopup();
+//Petsch 51.09987/13.37558
+var marker_BPE = L.marker([ 51.09987,13.37558]).addTo(map)
+		.bindPopup('<b>Bauer Petzsch</b><br />Hof von Bauer Petzsch').openPopup();
+
+// KZ Außenlager 51.10058/13.41292
+var marker_KZA = L.marker([ 51.10058,13.41292]).addTo(map)
+		.bindPopup('<b>KZ Außenlager</b><br />KZ Außenlager').openPopup();
+
+// Kalkbergwerk Miltiz 51.10360/13.41505
+var marker_KB = L.marker([ 51.10360,13.41505]).addTo(map)
+		.bindPopup('<b>Kalkbergwerk</b><br />Einsatzort von Häflingen; U-Verlagerung').openPopup();
+
+//Wunschwitz 2.WK 51.0864/13.3669
+var marker_RA = L.marker([ 51.0864,13.3669]).addTo(map)
+		.bindPopup('<b>SS/Wehrmacht Kampfhandlungen</b><br />SS und Wehrmacht zwangen in diesem Raum die rote Armee kurzfristig zum ausweichen').openPopup();
+//Absturz Aufklärer 51.0752/13.3544
+var marker_AA = L.marker([ 51.0752,13.3544]).addTo(map)
+		.bindPopup('<b>Absturzort Aufklärer?</b><br />Vermutlicher Absturz eines Aufklärers 1945').openPopup();
+//Pappenfabrik 51.09157/13.4128
+var marker_PA = L.marker([ 51.09157,13.4128]).addTo(map)
+		.bindPopup('<b>Papenfabrik Munzig</b><br />Während 2. WK Munitionsfabrik?').openPopup();
+
+	//var marker = L.marker([51.5, -0.09]).addTo(map)
+		//.bindPopup('<b>Hello world!</b><br />I am a popup.').openPopup();
+/*	var circle = L.circle([51.508, -0.11], {
+		color: 'red',
+		fillColor: '#f03',
+		fillOpacity: 0.5,
+		radius: 500
+	}).addTo(map).bindPopup('I am a circle.');
+
+	var polygon = L.polygon([
+		[51.509, -0.08],
+		[51.503, -0.06],
+		[51.51, -0.047]
+	]).addTo(map).bindPopup('I am a polygon.');
+
+
+	var popup = L.popup()
+		.setLatLng([51.513, -0.09])
+		.setContent('I am a standalone popup.')
+		.openOn(map);
+*/
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent('You clicked the map at ' + e.latlng.toString())
+			.openOn(map);
+	}
+
+	map.on('click', onMapClick);
+
+</script>
+
+
+
+</body>
+</html>
